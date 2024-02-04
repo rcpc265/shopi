@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import NavLink from "./NavLink";
+import CartCount from "./CartCount";
 
 const NavBar = () => {
   const navLinks = [
@@ -70,7 +71,7 @@ const NavBar = () => {
             <NavLink href={route.path}>{route.name}</NavLink>
           </li>
         ))}
-        <li>🛒 0</li>
+        <CartCount />
       </ul>
     </nav>
   );
