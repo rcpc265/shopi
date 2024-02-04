@@ -1,4 +1,5 @@
 import { Product } from "@/types";
+import CartToggleBtn from "./CartToggleBtn";
 import Image from "next/image";
 
 interface Props {
@@ -7,16 +8,13 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <div className="w-56 overflow-hidden rounded-lg border border-slate-300 transition-shadow hover:shadow-lg">
+    <div className="w-56 overflow-hidden rounded-lg border border-slate-300 transition-shadow hover:shadow-xl">
       <div className="relative h-60 shadow">
-        {/* Add to cart button */}
-        <button className="absolute right-3 top-3 z-10 flex size-6 items-center justify-center rounded-full bg-black/80 pb-0.5 text-xl text-white transition-transform hover:scale-110 hover:bg-black">
-          +
-        </button>
+        <CartToggleBtn productId={product.id} />
 
         {/* Product image */}
         <Image
-          className="size-full object-contain p-4"
+          className="size-full cursor-pointer object-contain p-4"
           src={product.image}
           alt={product.title}
           sizes="100%"

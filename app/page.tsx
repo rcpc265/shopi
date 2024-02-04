@@ -3,7 +3,6 @@ import productService from "@/services/productService";
 
 export default async function Home() {
   const products = await productService.getAll();
-
   return (
     <>
       <h1 className="text-center text-4xl font-medium">Home</h1>
