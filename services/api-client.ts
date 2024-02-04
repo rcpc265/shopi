@@ -10,11 +10,13 @@ const axiosInstace = axios.create({
 class APIClient<T> {
   constructor(private readonly endpoint: string) {}
 
-  getAll(config?: AxiosRequestConfig) {
-    return axiosInstace
-      .get<T[]>(this.endpoint, config)
-      .then((response) => response.data);
-  }
+  getAll = (config?: AxiosRequestConfig): Promise<T[]> =>
+    axiosInstace.get<T[]>(this.endpoint, config).then((res) => res.data);
+
+  getOne = (id: number, config?: AxiosRequestConfig): Promise<T> =>
+    axiosInstace
+      .get<T>(`${this.endpoint}/${id}`, config)
+      .then((res) => res.data);
 }
 
 export default APIClient;
